@@ -1,0 +1,33 @@
+.hotel {
+  width: 300px; }
+  .hotel:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.hotel-body {
+  color: #565a5c;
+  font-size: 14px; }
+
+.hotel-image img {
+  width: 100%; }
+
+.hotel-heading {
+  font-size: 16px;
+  color: #565a5c; }
+
+.hotel-time {
+  display: inline;
+  position: absolute;
+  font-size: 1.1em;
+  color: white;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+  top: 1px;
+  left: 10px; }
+
+.hotel-info {
+  color: white;
+  width: 100%;
+  z-index: 1000;
+  line-height: 1.6em;
+  font-size: 1.2em; }

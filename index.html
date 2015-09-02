@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" type="text/css" href="bower_components/prism/themes/prism.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/normalize.css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link id="template-css" rel="stylesheet" type="text/css" href="css/style.css">
+        
+
+        <script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="app.js"></script>
+
+    </head>
+    <body>
+
+    <div class="header">
+        <a href="/" class="logo">Deck</a>
+        <form>
+            <select class="template-selector">
+            <option value="airbnb">Airbnb</option>
+            <option value="issue">Issue</option>
+            <option value="hotel" selected="selected">Hotel</option>
+            </select>
+        </form>
+    </div>
+
+    <div class="json">
+        <pre><code class="language-javascript"></code></pre>
+    </div>
+    <div class="css">
+        <pre data-src="library/issue/issue.css"></pre>
+    </div>
+
+    <div class="html">
+        <div class="deck">
+            Deck
+        </div>
+        <pre data-src="library/issue/issue.html"></pre>
+    </div>
+
+    
+
+    <script src="bower_components/prism/prism.js"></script>
+       
+    </body>
+</html>

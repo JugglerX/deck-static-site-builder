@@ -1,0 +1,29 @@
+<h2>Hotel</h2>
+<div class="hotel">
+	<div class="hotel-image slick">
+	{{#each result.photos}}
+	<div><img src="{{this.medium}}"></div>
+	{{/each}}
+	</div>
+
+	<div class="hotel-body">
+		<h2 class="hotel-heading">{{result.attr.heading}}</h2>
+		<span class="hotel-roomtype">{{result.attr.roomType.text}}</span>
+		<span class="hotel-rating">{{result.reviews.rating}}</span>
+		<span class="hotel-rating-count">{{result.reviews.count}}</span>
+	</div>
+</div>
+
+<script type="text/javascript" src="bower_components/slick-carousel/slick/slick.js"></script>
+<link rel="stylesheet" type="text/css" href="bower_components/slick-carousel/slick/slick.css">
+<link rel="stylesheet" type="text/css" href="bower_components/slick-carousel/slick/slick-theme.css">
+
+<script type="text/javascript">
+	  $('.slick').slick({
+	    dots: true,
+		infinite: true,
+		speed: 500,
+		fade: true,
+		cssEase: 'linear'
+	  });
+</script>

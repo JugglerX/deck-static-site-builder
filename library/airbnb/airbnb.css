@@ -1,0 +1,33 @@
+.airbnb {
+  width: 300px; }
+  .airbnb:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.airbnb-body {
+  color: #565a5c;
+  font-size: 14px; }
+
+.airbnb-image img {
+  width: 100%; }
+
+.airbnb-heading {
+  font-size: 16px;
+  color: #565a5c; }
+
+.airbnb-time {
+  display: inline;
+  position: absolute;
+  font-size: 1.1em;
+  color: white;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+  top: 1px;
+  left: 10px; }
+
+.airbnb-info {
+  color: white;
+  width: 100%;
+  z-index: 1000;
+  line-height: 1.6em;
+  font-size: 1.2em; }
