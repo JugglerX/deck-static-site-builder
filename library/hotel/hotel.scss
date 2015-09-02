@@ -5,9 +5,9 @@
     clear:both;
   }
 }   
-
+ 
 .hotel {
-  @include clearfix();
+  @include clearfix(); 
   width: 300px;
 }
 .hotel-body {
