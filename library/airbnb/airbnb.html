@@ -3,15 +3,15 @@
 
 	<div class="airbnb-image slick">
 	{{#each result.photos}}
-		<div><img src="{{this.medium}}"></div>
+		<div><img src="{{getStudentValue this.medium}}"></div>
 	{{/each}}
 	</div>
 
 	<div class="airbnb-body">
 		<h2 class="airbnb-heading">{{result.attr.heading}}</h2>
-		<span class="airbnb-roomtype">{{result.attr.roomType.text}}</span>
-		<span class="airbnb-rating">{{result.reviews.rating}}</span>
-		<span class="airbnb-rating-count">{{result.reviews.count}}</span>
+		<span class="airbnb-roomtype">{{getStudentValue result.attr.roomType.text}}</span>
+		<span class="airbnb-rating">{{getStudentValue result.reviews.rating}}</span>
+		<span class="airbnb-rating-count">{{getStudentValue result.reviews.count}}</span>
 	</div>
 </div>
 

@@ -1,28 +1,82 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 @import 'clearfix';
+@import 'reset';
 
 $primary-color: green;
 pre {
 	margin: 0 !important;
 	font-size: 11px;
+	background: #FFF !important;
+	padding: 20px;
+	border: 1px solid #CCC;
+	clear: both;
+}
+body {
+	background: #EAEAEA;
+	font-family: "Open Sans", "arial";
+	font-weight: 400;
+}
+div {
+	box-sizing: border-box;
+}
+.middle {
+	text-align: center;
+	border-bottom: 1px solid #CCC;
+	padding: 40px;
+}
+.code {
+	background: #FFF;
+	@include clearfix();
 }
 .deck {
+	width: 1024px;
+	margin: 0 auto;
 
 }
 
-.column {
-
+.code-column {
+	form {
+		float: right;
+		margin-bottom: 20px;
+	}
+	h3 {
+		font-weight: 700;
+		color: red;
+	}
 }
 .json {
-	width: 400px;
+	padding: 20px;
+	width: 33.333%;
+	float: left;
+	background: #FFF;
+}
+.html {
+	padding: 20px;
+	background: #FFF;
+	width: 33.333%;
+	float: left;
+}
+.css {
+	padding: 20px;
+	background: #FFF;
+	width: 33.333%;
 	float: left;
 }
 
-.html {
-	margin-left: 400px;
-	margin-right: 400px;
+.header {
+	background: #FFF;
+	padding: 10px 20px 10px 20px;
+	border-bottom: 1px solid #CCC;
+	box-shadow: 1px 1px 6px #CCC;
+	a.logo {
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+	form {
+		display: inline-block;
+		float: right;
+	}
 }
-
-.css {
-	width: 400px;
-	float: right;
+.logo {
+	color: red;
 }
