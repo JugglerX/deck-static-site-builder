@@ -1,45 +1,72 @@
-@mixin clearfix() {
-  &:after {
-    content:"";
-    display:table;
-    clear:both;
-  }
-}   
-
-.airbnb {
-  @include clearfix();
+.demo {
+  /* Used only for Deck Demo */
   width: 300px;
-}
-.airbnb-body {
-  color: rgb(86, 90, 92);
-  font-size: 14px;
-}
-.airbnb-image {
-  img {
-    width: 100%;  
-  }
-}
-.airbnb-heading {
-  font-size: 16px;
-  color: rgb(86, 90, 92);
-}
-.airbnb-roomtype {
-  
-}
-.airbnb-time {
-  display: inline;
-  position: absolute;
-  font-size: 1.1em;
-  color: white;
-  text-shadow: 1px 1px rgba(0,0,0,0.5);
-  top: 1px;
-  left: 10px;
+  margin: 0 auto;
 }
 
-.airbnb-info {
-  color: white;
-  width: 100%;
-  z-index: 1000;
-  line-height: 1.6em;
-  font-size: 1.2em;
+.deck {
+  // Template
+  @mixin clearfix() {
+    &:after {
+      content:"";
+      display:table;
+      clear:both;
+    }
+  }   
+
+  .airbnb {
+    @include clearfix();
+    width: 300px;
+    padding: 10px;
+    background: #FFF;
+    box-shadow: 1px 1px 4px #CCC;
+  }
+  .airbnb-body {
+    color: rgb(86, 90, 92);
+    font-size: 14px;
+  }
+  .airbnb-image {
+    position: relative;
+    img {
+      width: 100%;  
+    }
+  }
+  .airbnb-heading {
+    font-size: 16px;
+    color: rgb(86, 90, 92);
+  }
+  .airbnb-roomtype {
+    
+  }
+  .airbnb-price {
+    position: absolute;
+    bottom: 40px;
+    background: #FFF;
+  }
+  .airbnb-time {
+    display: inline;
+    position: absolute;
+    font-size: 1.1em;
+    color: white;
+    text-shadow: 1px 1px rgba(0,0,0,0.5);
+    top: 1px;
+    left: 10px;
+  }
+
+  .airbnb-info {
+    color: white;
+    width: 100%;
+    z-index: 1000;
+    line-height: 1.6em;
+    font-size: 1.2em;
+  }
+
+  /* Dependancies Overrides */
+  .slick-slider {
+      margin-bottom: 10px;
+  }
+  .slick-dots {
+    position: relative;
+    bottom: 0;
+  }
 }

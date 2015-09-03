@@ -28,12 +28,58 @@ jQuery(document).ready(function($) {
 });
 
 
-Handlebars.registerHelper("getStudentValue", function(val) {
-    if(val === undefined) {
-        return "null";
+Handlebars.registerHelper('helperMissing', function(/* [args, ] options */) {
+    // if(arguments === undefined || arguments === "" || arguments === null) {
+    //     return "null";
+    // }
+    console.log(arguments)
+    for (var key in arguments) {
+      console.log(arguments[key])
+      console.log(key)
+        console.log('first level')
+        console.log('')
+      for (var i in arguments[key]) {
+        console.log(arguments[key][i])
+        console.log(i)
+        console.log('second level')
+        console.log('')
+        for (var x in arguments[key][i]) {
+          console.log(arguments[key][i][x])
+          console.log(x)
+                  console.log('third level')
+          console.log('')
+        }
+      }
     }
-    return val;
-});
+    // if(arguments === Object(arguments)) {
+    //   for (var key in arguments) {
+    //     if (arguments.hasOwnProperty(key)) {
+    //       if (arguments[key] === undefined) {
+    //         return "null"
+    //       }
+    //       for (var i in arguments[key]) {
+    //         if (arguments[key].hasOwnProperty(i)) {
+    //             if (arguments[key][i] === undefined) {
+    //               return "null"
+    //             }
+    //         }
+    //       }
+    //       // console.log("fuck yea")
+    //       // console.log(arguments[key])
+    //       // console.log(key)
+    //     }
+    //     // console.log(arguments)
+    //   }
+    // } 
+    return arguments;
+}); 
+
+// Handlebars.registerHelper("getStudentValue", function(val) {
+//     if(val === undefined) {
+//         return "null";
+//     }
+//     return val;
+// });
 
 
 function loadTemplate(template, url) {
@@ -54,7 +100,8 @@ function getHtml(path) {
       template = Handlebars.compile(source);
       updateHtmlCodeHighlight(asset);
       console.log(globalJson)
-      $(".deck").html(template(globalJson));   
+      $(".deck").html(template(globalJson)); 
+      $(".demo h2.demo-heading").html(path)  
     },
     error: function(err) { 
       console.log(path)
