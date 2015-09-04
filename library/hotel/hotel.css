@@ -1,41 +1,151 @@
-.hotel {
-  width: 300px;
+.demo {
+  /* Used only for Deck Demo */
+  width: 400px;
+  margin: 0 auto;
 }
 
-.hotel:after {
+.deck {
+  /* Dependancies Overrides */
+}
+
+.deck .hotel {
+  width: 400px;
+  padding: 10px;
+  background: #FFF;
+  box-shadow: 1px 1px 4px #CCCCCC;
+}
+
+.deck .hotel:after {
   content: "";
   display: table;
   clear: both;
 }
 
-.hotel-body {
-  color: #565a5c;
-  font-size: 14px;
+.deck .hotel-header {
+  position: relative;
 }
 
-.hotel-image img {
+.deck .hotel-body {
+  color: #565a5c;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.deck .hotel-roomtype {
+  color: rgba(86, 90, 92, 0.8);
+  line-height: 20px;
+}
+
+.deck .hotel-stars {
+  line-height: 20px;
+}
+
+.deck .hotel-rating-count {
+  color: rgba(86, 90, 92, 0.8);
+  line-height: 20px;
+}
+
+.deck .hotel-image {
+  position: relative;
+}
+
+.deck .hotel-image img {
   width: 100%;
 }
 
-.hotel-heading {
+.deck .hotel-heading {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
   font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
   color: #565a5c;
 }
 
-.hotel-time {
+.deck .hotel-heading a {
+  color: #565a5c;
+  text-decoration: none;
+}
+
+.deck .hotel-heading a:hover {
+  text-decoration: underline;
+}
+
+.deck .hotel-price {
+  text-decoration: none;
+  position: absolute;
+  bottom: 50px;
+  background: rgba(60, 63, 64, 0.9);
+  padding: 10px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.deck .hotel-price .hotel-price-dollar {
+  vertical-align: top;
+}
+
+.deck .hotel-price .hotel-price-value {
+  font-size: 150%;
+  line-height: 100%;
+  vertical-align: top;
+}
+
+.deck .hotel-price .hotel-price-currency {
+  font-size: 90%;
+  vertical-align: top;
+}
+
+.deck .hotel-time {
   display: inline;
   position: absolute;
   font-size: 1.1em;
   color: white;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px black;
   top: 1px;
   left: 10px;
 }
 
-.hotel-info {
+.deck .hotel-info {
   color: white;
   width: 100%;
   z-index: 1000;
   line-height: 1.6em;
   font-size: 1.2em;
+}
+
+.deck .slick-slider {
+  margin-bottom: 0px;
+}
+
+.deck .slick-dots {
+  position: relative;
+  bottom: 0;
+}
+
+.deck .slick-prev {
+  z-index: 100;
+  top: 90px;
+  left: 5px;
+}
+
+.deck .slick-prev:before {
+  font-family: FontAwesome;
+  font-size: 30px;
+  content: "\f053";
+}
+
+.deck .slick-next {
+  z-index: 100;
+  top: 90px;
+  right: 5px;
+}
+
+.deck .slick-next:before {
+  font-family: FontAwesome;
+  font-size: 30px;
+  content: "\f054";
 }

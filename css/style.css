@@ -28,58 +28,131 @@
   *zoom: 1;
 }
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+.stars {
+  display: inline-block;
+  vertical-align: middle;
+  color: #FFB400;
+}
+
+.stars:hover > .star {
+  cursor: pointer;
+}
+
+.stars:hover > .star:before {
+  content: "\f005" !important;
+  font-family: FontAwesome;
+}
+
+.stars > .star {
+  float: left;
+  position: relative;
+  transition: background-color 350ms;
+}
+
+.stars > .star:before {
+  content: "\f006";
+  font-family: FontAwesome;
+}
+
+.stars > .star:hover ~ .star:before {
+  content: "\f006" !important;
+  font-family: FontAwesome;
+}
+
+.stars > .star.star-full:before {
+  content: "\f005";
+  font-family: FontAwesome;
+}
+
+.stars > .star.star-half:before {
+  content: "\f123";
+  font-family: FontAwesome;
+}
+
+.stars.star-1 .star:nth-child(-n+1):before {
+  content: "\f005";
+  font-family: FontAwesome;
+}
+
+.stars.star-1\.5 .star:nth-child(-n+1):before {
+  content: "\f005";
+  font-family: FontAwesome;
+}
+
+.stars.star-1\.5 .star:nth-child(2):before {
+  content: "\f123";
+  font-family: FontAwesome;
+}
+
+.stars.star-2 .star:nth-child(-n+2):before {
+  content: "\f005";
+  font-family: FontAwesome;
+}
+
+.stars.star-2\.5 .star:nth-child(-n+2):before {
+  content: "\f005";
+  font-family: FontAwesome;
+}
+
+.stars.star-2\.5 .star:nth-child(3):before {
+  content: "\f123";
+  font-family: FontAwesome;
+}
+
+.stars.star-3 .star:nth-child(-n+3):before {
+  content: "\f005";
+  font-family: FontAwesome;
+}
+
+.stars.star-3\.5 .star:nth-child(-n+3):before {
+  content: "\f005";
+  font-family: FontAwesome;
+}
+
+.stars.star-3\.5 .star:nth-child(4):before {
+  content: "\f123";
+  font-family: FontAwesome;
+}
+
+.stars.star-4 .star:nth-child(-n+4):before {
+  content: "\f005";
+  font-family: FontAwesome;
+}
+
+.stars.star-4\.5 .star:nth-child(-n+4):before {
+  content: "\f005";
+  font-family: FontAwesome;
+}
+
+.stars.star-4\.5 .star:nth-child(5):before {
+  content: "\f123";
+  font-family: FontAwesome;
+}
+
+.stars.star-5 .star:nth-child(-n+5):before {
+  content: "\f005";
+  font-family: FontAwesome;
+}
+
+.stars.star-5\.5 .star:nth-child(-n+5):before {
+  content: "\f005";
+  font-family: FontAwesome;
+}
+
+.stars.star-5\.5 .star:nth-child(6):before {
+  content: "\f123";
+  font-family: FontAwesome;
+}
+
+h1, h2, h3, h4, h5 {
   margin: 0;
   padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+  font-size: inherit;
 }
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+ul {
+  padding: 0;
+  margin: 0;
 }
 
 pre {

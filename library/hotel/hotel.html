@@ -1,17 +1,33 @@
-<h2>Hotel</h2>
+
 <div class="hotel">
-{{test}}
-	<div class="hotel-image slick">
-	{{#each result.photos}}
-	<div><img src="{{this.medium}}"></div>
-	{{/each}}
+
+	<div class="hotel-header">
+		<div class="hotel-image slick">
+			{{#each result.photos}}
+				<div><img src="{{nullValue this.medium}}"></div>
+			{{/each}}
+		</div>
+
+		<a href="{{nullValue result.provider.url}}" class="hotel-price">
+			<span class="hotel-price-dollar">$</span>
+			<span class="hotel-price-value">{{{nullValue result.price.nightly}}}</span>
+			<span class="hotel-price-currency">AUD</span>
+		</a>
 	</div>
 
 	<div class="hotel-body">
-		<h2 class="hotel-heading">{{result.attr.heading}}</h2>
-		<span class="hotel-roomtype">{{result.attr.roomType.text}}</span>
-		<span class="hotel-rating">{{result.reviews.rating}}</span>
-		<span class="hotel-rating-count">{{result.reviews.count}}</span>
+		<h2 class="hotel-heading"><a href="{{nullValue result.provider.url}}" >{{nullValue result.attr.heading}}</a></h2>
+		<span class="hotel-roomtype">{{nullValue result.attr.roomType.text}}</span>
+
+		<div class="hotel-stars stars star-{{nullValue result.reviews.rating}}">
+			<span class="star"></span>
+			<span class="star"></span>
+			<span class="star"></span>
+			<span class="star"></span>
+			<span class="star"></span>
+		</div>
+
+		<span class="hotel-rating-count">{{nullValue result.reviews.count}} Reviews</span>
 	</div>
 </div>
 
