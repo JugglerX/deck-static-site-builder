@@ -133,9 +133,7 @@
 // Form Buttons
 // --------------------------------------------------
 input.form-submit {
-      @include btn();
-      @include btn-secondary();
-     // @include btn-medium();
+      @extend .btn;
       margin-right: 10px;
       text-indent: 0;
 }
@@ -145,23 +143,5 @@ input.form-submit.disabled {
   background-color: #EAEAEA;
 }
 
-input[value="Remove"]         { @include btn-small(); }
-input[value="Update cart"]    {  margin: 0 10px 0 0; }
-input[value="Checkout"]       {  }
-input[value="Buy Cushions"]   {  }
-input[value="Cancel"]         { margin: 0 10px 0 0; }
-input[value="Review order"]   {  }
-input[value="Back"]           {  margin: 0 10px 0 0; }
-input[value="Submit order"]   {  }
 
-
-// Read More (Smart Trim Module)
-// --------------------------------------------------
-.field-name-node-link {
-  a {
-      @include btn();
-      @include btn-normal();
-      @include btn-secondary();
-    }
-}
 
