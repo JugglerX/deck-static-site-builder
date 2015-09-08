@@ -1,0 +1,83 @@
+/*
+* Paradigm V1.0.0
+* Robert Austin - rob$jugglerdigital.com
+*/
+
+
+/* 
+   Global Variables
+   ========================================================================== */
+$baselineheight:			1.5;
+$basefontsize:				14px;
+$basefontcolor:				#555;
+$customfontcolor:			#333;
+$basefont:					"open sans", "helvetica", "arial";
+$customfont:				"roboto slab", "helvetica", "arial";
+$menufont:					$customfont;
+
+$primarycolor:	 			#46b980;
+$secondarycolor:			#2d3a41;
+
+/* Link Colors */
+$linkcolor:             	darken($primarycolor, 8%);
+$linkcolorhover:        	darken($primarycolor, 16%);
+
+/* Colors */
+$white:						#FFFFFF;
+$black:                 	#000000;
+$gray:                  	#c0c4c6;
+$red:						#a52020;
+$green:						#92ad27;
+
+/* Text Color */
+$textcolor:					#212121;
+$textcolorsecondary:		#727272;
+
+/* Body */
+body {
+	margin: 0;
+	padding: 0;
+	color: $textcolor;
+	font-family: $basefont;
+	font-size: $basefontsize;
+	line-height: $baselineheight;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Text Links */
+a { 
+	border-bottom: 1px dashed rgba(70,185,128,.5);
+  	color: $primarycolor;
+  	text-decoration: none;
+}
+a:hover { 
+	border-bottom: 1px solid rgba(70,185,128,1);
+}
+
+// Core
+@import 'core/clearfix';
+@import 'core/mobile';
+@import 'core/grid';
+@import 'core/mixins';
+@import 'core/column';
+@import 'core/layout';
+@import 'core/debug';
+
+
+//Project
+@import 'project/portfolio';
+
+// Modules
+@import 'module/menu';
+@import 'module/slidebars';
+@import 'module/social';
+@import 'module/type';
+@import 'module/well';
+
+// Theme
+// @import 'theme';
+/* 
+   Fonts
+   ========================================================================== */
+@import url(https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,600,300,700,800|Roboto+Slab:400,300,700|Merriweather:400,300,700|Slabo+27px);
+

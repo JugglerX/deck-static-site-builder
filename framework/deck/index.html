@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Deck</title>
+  <meta charset="UTF-8">
+        
+  <link rel="stylesheet" type="text/css" href="../../bower_components/prism/themes/prism.css">
+  <link rel="stylesheet" type="text/css" href="../../bower_components/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="../../bower_components/normalize.css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../../css/style.css">
+  <link id="template-css" rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="app.js"></script>
+
+</head>
+
+<body class="">
+
+  <div class="region featured">
+    <div class="region-inner">
+      
+    </div>
+  </div>
+
+  <div class="region middle">
+    <div class="region-inner">
+
+        <div class="callout">Paradigm is a flexible css framework that belives in </div>
+
+        <div class="portfolios">
+          
+          <div class="portfolio-row">
+
+            <div class="portfolio">     
+              <h3>Media Query Helpers</h3>
+              <p>Media queries are baked into the grid. Change breakpoints with a global variable. Convienent helpers can be used anywhere in the css for specific overrides.</p>
+<pre><code class="language-css">
+h1 {
+  font-size: 36px;
+  @media @mobile {
+    font-size: 20px; 
+  }
+}</code>
+</pre>
+            </div>
+
+            <div class="portfolio">
+              <h3>Flexible Grid</a></h3>
+              <p>Flexible grid system. No nested containers, No multiple classes. 1 .column() mixin, you can use anywhere. It's surprsingly zen.</p>
+              <pre><code class="language-css">
+.portfolio {
+  .column(4);
+  .last(3);
+}</code>
+</pre>
+            </div>
+
+            <div class="portfolio">
+              <h3>No Markup</h3>
+              <p>Styles are applied as mixins in the css. Sometimes you can't change the markup. Enforces consistency. </p>
+            </div>
+
+            <div class="portfolio"> 
+              <h3>Components, View Modes & Globals</h3>
+              <p>Features and components get there own css. Context changes to components are handled with view modes. Things like buttons, forms and other common elements are globals and are applied as classes in the markup or as exetensions in css. It's a stylistic take on OOP or BEM methodology (if your into that). It's stragnly explicit, maintainable and practically reusable.</p>
+
+<pre><code class="language-markup">
+&lt;div class="portfolio">
+  &lt;img class="portfolio-image" src="images/portfolio-world-surfaris.jpg" />
+  &lt;h3>World Surfaris&lt;/h3>
+  &lt;p class="portfolio-type">Australia's Largest Render Manufacturer&lt;/p>        
+  &lt;p>Drupal architecture, design and development, custom theme, custom modules, e-commerce&lt;/p>
+&lt;/div></code>
+</pre>
+
+<pre><code class="language-css">
+.portfolio {
+  .column(4);
+  .last(3);
+  .portfolio-image{
+    margin-bottom: 8px;
+    border: 1px solid #EAEAEA;
+    .whitebox();
+  }
+  .portfolio-type {
+    font-weight: 700;
+    font-size: 14px;
+    color: #555;
+  }
+  h3 {
+    color: #444;
+  }
+}</code></pre>
+</div>
+              
+
+    </div>
+  </div>
+  <!-- End Middle -->
+
+
+</body>
+</html>
