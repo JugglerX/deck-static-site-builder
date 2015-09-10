@@ -595,83 +595,6 @@ body.two-sidebars .region-below-content, .two-sidebars.livingstyleguide--example
     top: 0;
     left: 0;
     padding: 14px; } }
-.portfolios .portfolio-row {
-  border-bottom: 1px solid #CCC;
-  margin-bottom: 20px; }
-  .portfolios .portfolio-row:after {
-    content: "";
-    display: table;
-    clear: both; }
-.portfolios .portfolio-section {
-  display: block;
-  margin-bottom: 10px;
-  clear: both; }
-
-.portfolio {
-  box-sizing: border-box;
-  min-height: 140px;
-  overflow: hidden; }
-  .portfolio:after {
-    content: "";
-    display: table;
-    clear: both; }
-  @media only screen and (min-width: 1380px) {
-    .portfolio {
-      width: 402px;
-      display: inline-block;
-      float: left;
-      position: relative;
-      margin-right: 14px;
-      margin-bottom: 14px; } }
-  @media only screen and (min-width: 1024px) and (max-width: 1380px) {
-    .portfolio {
-      width: 346px;
-      display: inline-block;
-      float: left;
-      position: relative;
-      margin-right: 14px;
-      margin-bottom: 14px; } }
-  @media only screen and (min-width: 768px) and (max-width: 1024px) {
-    .portfolio {
-      width: 276px;
-      display: inline-block;
-      float: left;
-      position: relative;
-      margin-right: 12px;
-      margin-bottom: 12px; } }
-  @media only screen and (max-width: 768px) {
-    .portfolio {
-      width: auto;
-      display: block;
-      float: none;
-      position: relative; } }
-  .portfolio:nth-of-type(positionn + 0) {
-    margin-right: 0; }
-  @media only screen and (max-width: 768px) {
-    .portfolio {
-      min-height: 0px;
-      border-bottom: 1px solid #EAEAEA;
-      margin-bottom: 14px;
-      height: auto; }
-      .portfolio:last-of-type {
-        border: none; } }
-  .portfolio .portfolio-image {
-    position: relative;
-    margin-bottom: 8px;
-    border: 1px solid #EAEAEA;
-    background: #FFFFFF;
-    border: 1px solid #EAEAEA; }
-  .portfolio .portfolio-type {
-    font-weight: 700;
-    margin-bottom: 7px;
-    font-size: 14px;
-    color: #555; }
-  .portfolio h3 {
-    color: #444; }
-  .portfolio h3 .fa {
-    font-size: 12px;
-    color: #666; }
-
 ul.menu {
   display: inline-block;
   font-weight: 700;
@@ -737,6 +660,84 @@ ul.menu {
             color: #fff; }
       ul.menu li.expanded ul ul li a {
         text-indent: 20px; }
+
+.portfolios .portfolio-row {
+  border-bottom: 1px solid #CCC;
+  margin-bottom: 20px; }
+  .portfolios .portfolio-row:after {
+    content: "";
+    display: table;
+    clear: both; }
+.portfolios .portfolio-section {
+  display: block;
+  margin-bottom: 10px;
+  clear: both; }
+
+.portfolio {
+  box-sizing: border-box;
+  min-height: 140px;
+  overflow: hidden; }
+  .portfolio:after {
+    content: "";
+    display: table;
+    clear: both; }
+  @media only screen and (min-width: 1380px) {
+    .portfolio {
+      width: 402px;
+      display: inline-block;
+      float: left;
+      position: relative;
+      margin-right: 14px;
+      margin-bottom: 14px; } }
+  @media only screen and (min-width: 1024px) and (max-width: 1380px) {
+    .portfolio {
+      width: 346px;
+      display: inline-block;
+      float: left;
+      position: relative;
+      margin-right: 14px;
+      margin-bottom: 14px; } }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .portfolio {
+      width: 276px;
+      display: inline-block;
+      float: left;
+      position: relative;
+      margin-right: 12px;
+      margin-bottom: 12px; } }
+  @media only screen and (max-width: 768px) {
+    .portfolio {
+      width: auto;
+      display: block;
+      float: none;
+      position: relative; } }
+  .portfolio:nth-of-type(3n + 0) {
+    margin-right: 0;
+    background: yellow; }
+  @media only screen and (max-width: 768px) {
+    .portfolio {
+      min-height: 0px;
+      border-bottom: 1px solid #EAEAEA;
+      margin-bottom: 14px;
+      height: auto; }
+      .portfolio:last-of-type {
+        border: none; } }
+  .portfolio .portfolio-image {
+    position: relative;
+    margin-bottom: 8px;
+    border: 1px solid #EAEAEA;
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA; }
+  .portfolio .portfolio-type {
+    font-weight: 700;
+    margin-bottom: 7px;
+    font-size: 14px;
+    color: #555; }
+  .portfolio h3 {
+    color: #444; }
+  .portfolio h3 .fa {
+    font-size: 12px;
+    color: #666; }
 
 /* -----------------------------------
  * Slidebars
@@ -1938,12 +1939,20 @@ input.form-submit.disabled {
 .\$livingstyleguide--highlight-border-radius:after {
   content: "2px"; }
 
+.my-header {
+  background: red;
+  text-align: center;
+  padding: 100px; }
+
 </style>
 
 </head>
 
 <body class="livingstyleguide">
-<h1 class="livingstyleguide--page-title">Living Style Guide</h1>
+<div class="my-header">
+  <img src="logo.svg">
+</div>
+
 <div class="livingstyleguide--container">
 <h2 class="livingstyleguide--headline" id="buttons"><a class="livingstyleguide--anchor" href="#buttons"></a>Buttons</h2>
 <div class="livingstyleguide--example">

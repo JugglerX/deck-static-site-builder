@@ -1,0 +1,14 @@
+source: 'style.scss' # replace with your default Sass/SCSS file name
+title: 'Deck'
+
+header: |
+  <div class="my-header">
+    <img src="logo.svg">
+  </div>
+
+styleguide-scss: | 
+  .my-header {
+    background: red;
+    text-align: center; 
+    padding: 100px;
+  }   
