@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
       livingstyleguide: {
-        files: ['framework/deck/scss/**/*.md'],
+        files: ['framework/deck/**/*.md'],
         tasks: ['livingstyleguide']
       },
     },
