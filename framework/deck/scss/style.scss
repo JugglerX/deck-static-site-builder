@@ -1,12 +1,9 @@
 /*
-* Paradigm V1.0.0
-* Robert Austin - rob$jugglerdigital.com
+* Deck V1.0.0
+* Robert Austin - rob@jugglerdigital.com
 */
 
-
-/* 
-   Global Variables
-   ========================================================================== */
+// Global Variables
 $baselineheight:			1.5;
 $basefontsize:				14px;
 $basefontcolor:				#555;
@@ -15,7 +12,7 @@ $basefont:					"open sans", "helvetica", "arial";
 $customfont:				"roboto slab", "helvetica", "arial";
 $menufont:					$customfont; 
 
-$primarycolor:	 			#46b980;
+$primarycolor:	 			#ff5a5f;
 $secondarycolor:			#2d3a41;
 
 /* Link Colors */
@@ -33,34 +30,11 @@ $green:						#92ad27;
 $textcolor:					#212121;
 $textcolorsecondary:		#727272;
 
-/* Body */
-body {
-	margin: 0;
-	padding: 0;
-	color: $textcolor;
-	font-family: $basefont;
-	font-size: $basefontsize;
-	line-height: $baselineheight;
-	-webkit-font-smoothing: antialiased;
-}
-
-/* Text Links */
-a { 
-	border-bottom: 1px dashed rgba(70,185,128,.5);
-  	color: $primarycolor;
-  	text-decoration: none;
-}
-a:hover { 
-	border-bottom: 1px solid rgba(70,185,128,1);
-}
-
-// Dependancies
-// @import '/bower_components/animate.css/animate.css';
-// @import '/bower_components/normalize.css/normalize.css';
 
 // Core
-@import 'core/clearfix';
+@import 'core/reset';
 @import 'core/mobile';
+@import 'core/clearfix';
 @import 'core/grid';
 @import 'core/mixins';
 @import 'core/column';
@@ -75,6 +49,11 @@ a:hover {
 @import 'module/type';
 @import 'module/well';
 @import 'module/buttons';
+@import 'module/labels';
+
+// Dependancies
+// @import '../../../bower_components/animate.css/animate';
+// @import '../../../bower_components/normalize.css/normalize';
 
 // Theme
 // @import 'theme';
@@ -82,4 +61,26 @@ a:hover {
    Fonts
    ========================================================================== */
 @import url(https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,600,300,700,800|Roboto+Slab:400,300,700|Merriweather:400,300,700|Slabo+27px);
+
+
+/* Body */
+body {
+	margin: 0;
+	padding: 0;
+	color: $textcolor;
+	font-family: $basefont;
+	font-size: $basefontsize;
+	line-height: $baselineheight;
+	-webkit-font-smoothing: antialiased;
+	@include display-breakpoint;
+}
+/* Text Links */
+a { 
+	border-bottom: 1px dashed rgba(70,185,128,.5);
+  	color: $primarycolor;
+  	text-decoration: none;
+}
+a:hover { 
+	border-bottom: 1px solid rgba(70,185,128,1);
+}
 

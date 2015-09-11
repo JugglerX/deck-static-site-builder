@@ -1,7 +1,4 @@
-/* ==========================================================================
-   Column
-   ========================================================================== */
-
+// Column
 @mixin column($column, $column-padding:0) {
   @include clearfix;
   box-sizing: border-box;
@@ -41,10 +38,8 @@
 }
 
 @mixin last($position) {
-
   &:nth-of-type(#{$position}n + 0) {
     margin-right: 0;
-    background: yellow;
   }
 }
 

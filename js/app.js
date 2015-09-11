@@ -1,6 +1,6 @@
 // Define available Library items. Eventually this will be created based on scanning the /library/ folder structure (using node FS)
 var library = [
-  ["airbnb","https://zilyo.p.mashape.com/id?id=air3962084"],
+  ["hotel","https://zilyo.p.mashape.com/search?ids=hma1554297%2Cwts1398%2Cair1836678"],
   ["issue","http://localhost:3000/api/issues/1"]
 ];
 
@@ -17,13 +17,16 @@ jQuery(document).ready(function($) {
   populateJsonSelectBox(library);
 
   // Load a default template
-  loadTemplate("hotel","https://zilyo.p.mashape.com/id?id=air3962084")
+  loadTemplate("hotel","https://zilyo.p.mashape.com/search?latitude=52.5306438&longitude=13.3830683&provider=airbnb&resultsperpage=6")
+
+    // https://zilyo.p.mashape.com/search?ids=air1093088,air205842,air1836678,air5708749,air4069917,air2331166"
 
   // Hook on change events
   changeTemplate();
   changeCss();
   changeJson();
   changeHtml();
+  changeViewMode();
 
 });
 
@@ -44,6 +47,23 @@ Handlebars.registerHelper("nullValue", function(val) {
     return val;
 });
 
+Handlebars.registerHelper('each-limit', function(context, limit) {
+    var options = arguments[arguments.length - 1];
+    var ret = '';
+
+    if (context && context.length > 0) {
+        var max = Math.min(context.length, limit);
+        for (var i = 0; i < max; i++) {
+            ret += options.fn(context[i]);
+        }
+    } else {
+        ret = options.inverse(this);
+    }
+
+    return ret;
+});
+
+
 function loadTemplate(template, url) {
   console.log("Load Template")
   getJson(url);
@@ -54,6 +74,7 @@ function loadTemplate(template, url) {
 function getHtml(path) {
   var asset = "library/" + path + "/" + path + ".html"
   console.log("HTML Asset: " + asset);
+  globalHtml = asset
   $.ajax({
     url: asset,
     cache: true,
@@ -62,7 +83,6 @@ function getHtml(path) {
       template = Handlebars.compile(source,{compat: true});
       
       updateHtmlCodeHighlight(asset);
-      console.log(globalJson)
       $(".deck").html(template(globalJson)); 
       $(".demo h2.demo-heading").html(path)  
     },
@@ -71,6 +91,7 @@ function getHtml(path) {
     }
   });
 };
+
 
 function getCss(path) {
   var asset = "library/" + path + "/" + path + ".css"
@@ -89,6 +110,7 @@ function getJson(path) {
     dataType: 'json',
     success: function(data) { 
       globalJson = data
+      console.log(globalJson)
       updateJsonCodeHighlight(data);
       $(".deck").html(template(data));  
     },
@@ -197,3 +219,43 @@ function updateHtmlCodeHighlight(data) {
   Prism.fileHighlight();
 }
 
+
+// Labels
+function changeViewMode() {
+  $(".label").on("click", function() {
+
+    var viewmode = $(this).html();
+    viewmode = viewmode.toLowerCase();
+    viewmode = viewmode + ".html"
+
+    var splitPath = globalHtml.split('/');
+    delete splitPath[splitPath.length - 1];
+
+    var directory = splitPath.join('/');
+    var filename = splitPath[1]
+
+    console.log(splitPath)
+    console.log(directory)
+    console.log(filename)
+
+    var asset = directory + filename + "-" + viewmode
+    console.log(asset)
+    
+    // Load the HTML
+    $.ajax({
+      url: asset,
+      cache: true,
+      success: function(data) {
+        source = data;
+        template = Handlebars.compile(source,{compat: true});
+        
+        updateHtmlCodeHighlight(asset);
+        $(".deck").html(template(globalJson)); 
+        // $(".demo h2.demo-heading").html(path)  
+      },
+      error: function(err) { 
+        console.log(path)
+      }
+    });
+  });
+};

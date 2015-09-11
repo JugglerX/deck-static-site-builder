@@ -1,4 +1,47 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+/* CSS Mini Reset */
+html, body, div, form, fieldset, legend, label {
+  margin: 0;
+  padding: 0; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+th, td {
+  text-align: left;
+  vertical-align: top; }
+
+h1, h2, h3, h4, h5, h6, th, td, caption {
+  font-weight: normal;
+  margin: 0; }
+
+img {
+  border: 0; }
+
+.label {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  background: #CCC; }
+  .label a:hover,
+  .label a:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer; }
+  .label:empty {
+    display: none; }
+  .btn .label {
+    position: relative;
+    top: -1px; }
+
 pre {
   margin: 0 !important;
   font-size: 11px;
@@ -16,8 +59,30 @@ div {
   box-sizing: border-box; }
 
 .middle {
-  border-bottom: 1px solid #CCC;
-  padding: 40px; }
+  padding: 40px 0 40px 0; }
+
+.deck {
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative; }
+  .deck:after {
+    content: "";
+    display: table;
+    clear: both; }
+  @media only screen and (min-width: 1380px) {
+    .deck {
+      width: 1234px; } }
+  @media only screen and (min-width: 1024px) and (max-width: 1380px) {
+    .deck {
+      width: 1066px; } }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .deck {
+      width: 852px; } }
+  @media only screen and (max-width: 768px) {
+    .deck {
+      padding: 14px; } }
 
 .code {
   background: #FFF; }
@@ -68,3 +133,12 @@ div {
 
 .logo {
   color: red; }
+
+.labels {
+  text-align: center;
+  display: block;
+  margin-bottom: 20px; }
+  .labels .label {
+    cursor: pointer; }
+    .labels .label:hover {
+      background: #EEE; }

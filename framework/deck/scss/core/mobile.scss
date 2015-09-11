@@ -34,7 +34,7 @@ $desktop-xl:  "only screen and (min-width : 1380px)";
   }
 }
 
-body {
+@mixin display-breakpoint {
     &:after {
     background: red;
     color: #FFFFFF;

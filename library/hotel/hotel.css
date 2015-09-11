@@ -1,151 +1,222 @@
 .demo {
-  /* Used only for Deck Demo */
-  width: 400px;
-  margin: 0 auto;
-}
+  /* Used only for Deck Demo */ }
 
 .deck {
-  /* Dependancies Overrides */
-}
+  /* Dependancies Overrides */ }
+  .deck .hotel {
+    box-sizing: border-box;
+    padding: 10px;
+    background: #FFF;
+    box-shadow: 1px 1px 4px #CCCCCC; }
+    .deck .hotel:after {
+      content: "";
+      display: table;
+      clear: both; }
+    .deck .hotel:after {
+      content: "";
+      display: table;
+      clear: both; }
+    @media only screen and (min-width: 1380px) {
+      .deck .hotel {
+        width: 402px;
+        display: inline-block;
+        float: left;
+        position: relative;
+        margin-right: 14px;
+        margin-bottom: 14px; } }
+    @media only screen and (min-width: 1024px) and (max-width: 1380px) {
+      .deck .hotel {
+        width: 346px;
+        display: inline-block;
+        float: left;
+        position: relative;
+        margin-right: 14px;
+        margin-bottom: 14px; } }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+      .deck .hotel {
+        width: 276px;
+        display: inline-block;
+        float: left;
+        position: relative;
+        margin-right: 12px;
+        margin-bottom: 12px; } }
+    @media only screen and (max-width: 768px) {
+      .deck .hotel {
+        width: auto;
+        display: block;
+        float: none;
+        position: relative; } }
+    .deck .hotel:nth-of-type(3n + 0) {
+      margin-right: 0; }
+  .deck .hotel-header {
+    position: relative; }
+  .deck .hotel-body {
+    color: #565a5c;
+    font-size: 12px;
+    overflow: hidden; }
+  .deck .hotel-roomtype {
+    color: rgba(86, 90, 92, 0.8);
+    line-height: 20px; }
+  .deck .hotel-stars {
+    line-height: 20px; }
+  .deck .hotel-rating-count {
+    color: rgba(86, 90, 92, 0.8);
+    line-height: 20px; }
+  .deck .hotel-image {
+    position: relative; }
+    .deck .hotel-image img {
+      width: 100%; }
+  .deck .hotel-heading {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #565a5c; }
+    .deck .hotel-heading a {
+      color: #565a5c;
+      text-decoration: none; }
+      .deck .hotel-heading a:hover {
+        text-decoration: underline; }
+  .deck .hotel-price {
+    text-decoration: none;
+    position: absolute;
+    bottom: 50px;
+    background: rgba(60, 63, 64, 0.9);
+    padding: 10px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: 300; }
+    .deck .hotel-price .hotel-price-dollar {
+      vertical-align: top; }
+    .deck .hotel-price .hotel-price-value {
+      font-size: 150%;
+      line-height: 100%;
+      vertical-align: top; }
+    .deck .hotel-price .hotel-price-currency {
+      font-size: 90%;
+      vertical-align: top; }
+  .deck .hotel-time {
+    display: inline;
+    position: absolute;
+    font-size: 1.1em;
+    color: white;
+    text-shadow: 1px 1px black;
+    top: 1px;
+    left: 10px; }
+  .deck .hotel-info {
+    color: white;
+    width: 100%;
+    z-index: 1000;
+    line-height: 1.6em;
+    font-size: 1.2em; }
+  .deck .slick-slider {
+    margin-bottom: 0px; }
+  .deck .slick-dots {
+    position: relative;
+    bottom: 0;
+    margin: 0; }
+  .deck .slick-prev {
+    z-index: 100;
+    top: 90px;
+    left: 5px; }
+    .deck .slick-prev:before {
+      font-family: FontAwesome;
+      font-size: 30px;
+      content: "\f053"; }
+  .deck .slick-next {
+    z-index: 100;
+    top: 90px;
+    right: 5px; }
+    .deck .slick-next:before {
+      font-family: FontAwesome;
+      font-size: 30px;
+      content: "\f054"; }
 
-.deck .hotel {
-  width: 400px;
-  padding: 10px;
-  background: #FFF;
-  box-shadow: 1px 1px 4px #CCCCCC;
-}
+.stars {
+  display: inline-block;
+  vertical-align: middle;
+  color: #FFB400; }
+  .stars:hover > .star {
+    cursor: pointer; }
+    .stars:hover > .star:before {
+      content: "\f005" !important;
+      font-family: FontAwesome; }
+  .stars > .star {
+    float: left;
+    position: relative;
+    transition: background-color 350ms; }
+    .stars > .star:before {
+      content: "\f006";
+      font-family: FontAwesome; }
+    .stars > .star:hover ~ .star:before {
+      content: "\f006" !important;
+      font-family: FontAwesome; }
+    .stars > .star.star-full:before {
+      content: "\f005";
+      font-family: FontAwesome; }
+    .stars > .star.star-half:before {
+      content: "\f123";
+      font-family: FontAwesome; }
 
-.deck .hotel:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+.stars.star-1 .star:nth-child(-n+1):before {
+  content: "\f005";
+  font-family: FontAwesome; }
 
-.deck .hotel-header {
-  position: relative;
-}
+.stars.star-1\.5 .star:nth-child(-n+1):before {
+  content: "\f005";
+  font-family: FontAwesome; }
 
-.deck .hotel-body {
-  color: #565a5c;
-  font-size: 12px;
-  overflow: hidden;
-}
+.stars.star-1\.5 .star:nth-child(2):before {
+  content: "\f123";
+  font-family: FontAwesome; }
 
-.deck .hotel-roomtype {
-  color: rgba(86, 90, 92, 0.8);
-  line-height: 20px;
-}
+.stars.star-2 .star:nth-child(-n+2):before {
+  content: "\f005";
+  font-family: FontAwesome; }
 
-.deck .hotel-stars {
-  line-height: 20px;
-}
+.stars.star-2\.5 .star:nth-child(-n+2):before {
+  content: "\f005";
+  font-family: FontAwesome; }
 
-.deck .hotel-rating-count {
-  color: rgba(86, 90, 92, 0.8);
-  line-height: 20px;
-}
+.stars.star-2\.5 .star:nth-child(3):before {
+  content: "\f123";
+  font-family: FontAwesome; }
 
-.deck .hotel-image {
-  position: relative;
-}
+.stars.star-3 .star:nth-child(-n+3):before {
+  content: "\f005";
+  font-family: FontAwesome; }
 
-.deck .hotel-image img {
-  width: 100%;
-}
+.stars.star-3\.5 .star:nth-child(-n+3):before {
+  content: "\f005";
+  font-family: FontAwesome; }
 
-.deck .hotel-heading {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-  color: #565a5c;
-}
+.stars.star-3\.5 .star:nth-child(4):before {
+  content: "\f123";
+  font-family: FontAwesome; }
 
-.deck .hotel-heading a {
-  color: #565a5c;
-  text-decoration: none;
-}
+.stars.star-4 .star:nth-child(-n+4):before {
+  content: "\f005";
+  font-family: FontAwesome; }
 
-.deck .hotel-heading a:hover {
-  text-decoration: underline;
-}
+.stars.star-4\.5 .star:nth-child(-n+4):before {
+  content: "\f005";
+  font-family: FontAwesome; }
 
-.deck .hotel-price {
-  text-decoration: none;
-  position: absolute;
-  bottom: 50px;
-  background: rgba(60, 63, 64, 0.9);
-  padding: 10px;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  font-weight: 300;
-}
+.stars.star-4\.5 .star:nth-child(5):before {
+  content: "\f123";
+  font-family: FontAwesome; }
 
-.deck .hotel-price .hotel-price-dollar {
-  vertical-align: top;
-}
+.stars.star-5 .star:nth-child(-n+5):before {
+  content: "\f005";
+  font-family: FontAwesome; }
 
-.deck .hotel-price .hotel-price-value {
-  font-size: 150%;
-  line-height: 100%;
-  vertical-align: top;
-}
+.stars.star-5\.5 .star:nth-child(-n+5):before {
+  content: "\f005";
+  font-family: FontAwesome; }
 
-.deck .hotel-price .hotel-price-currency {
-  font-size: 90%;
-  vertical-align: top;
-}
-
-.deck .hotel-time {
-  display: inline;
-  position: absolute;
-  font-size: 1.1em;
-  color: white;
-  text-shadow: 1px 1px black;
-  top: 1px;
-  left: 10px;
-}
-
-.deck .hotel-info {
-  color: white;
-  width: 100%;
-  z-index: 1000;
-  line-height: 1.6em;
-  font-size: 1.2em;
-}
-
-.deck .slick-slider {
-  margin-bottom: 0px;
-}
-
-.deck .slick-dots {
-  position: relative;
-  bottom: 0;
-}
-
-.deck .slick-prev {
-  z-index: 100;
-  top: 90px;
-  left: 5px;
-}
-
-.deck .slick-prev:before {
-  font-family: FontAwesome;
-  font-size: 30px;
-  content: "\f053";
-}
-
-.deck .slick-next {
-  z-index: 100;
-  top: 90px;
-  right: 5px;
-}
-
-.deck .slick-next:before {
-  font-family: FontAwesome;
-  font-size: 30px;
-  content: "\f054";
-}
+.stars.star-5\.5 .star:nth-child(6):before {
+  content: "\f123";
+  font-family: FontAwesome; }

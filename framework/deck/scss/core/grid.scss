@@ -1,32 +1,24 @@
-/* ==========================================================================
-   Grid Variables
-   ========================================================================== */
+// Desktop Grid 
 $column-width: 76px;
 $columns: 12;
 $gutter: 14px;
 $column-fullwidth: ($columns * $column-width) + ($columns * $gutter) - ($gutter)  * 1;
 $column-size: ($column-width + $gutter);
 
-/* ==========================================================================
-   Desktop XL Grid Variables
-   ========================================================================== */
+// Desktop XL Grid
 $desktopxl-column-width: 90px;
 $desktopxl-columns: 12;
 $desktopxl-gutter: 14px;
 $desktopxl-column-fullwidth: ($columns * $desktopxl-column-width) - ($desktopxl-gutter) * 1;
 
 
-/* ==========================================================================
-   Ipad Grid Variables
-   ========================================================================== */
+// iPad Grid
 $ipad-column-width: 60px;
 $ipad-columns: 12;
 $ipad-gutter: 12px;
 $ipad-column-fullwidth: ($columns * $ipad-column-width) * 1;
 
-/* ==========================================================================
-   Mobile Grid Variables
-   ========================================================================== */
+// Mobile Grid
 $mobile-gutter: 14px;
 
 @mixin reset {
@@ -133,28 +125,3 @@ $mobile-gutter: 14px;
       position: relative;
     }
 }
-
-// @mixin grid()
-// {
-//     @include desktop-xl {
-//       margin-left: $desktopxl-gutter * 1;
-//       position: relative;
-//     }
-//     @include desktop {
-//       margin-left: $gutter * 1;
-//       position: relative;
-//     }
-//     @include ipad {
-//       margin-left: $ipad-gutter * 1;
-//       position: relative;
-//     }
-//     @include mobile {
-//       width: auto;
-//       display: block;
-//       float: none;
-//       position: relative;
-//       height: auto;
-//       margin: 0 auto;
-//     }
-// }
-

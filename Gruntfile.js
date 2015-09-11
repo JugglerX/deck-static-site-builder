@@ -1,14 +1,25 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    library_dest: '',
+    library_source: '',
+
     watch: {
       sass_deck: {
-        files: ['framework/deck/scss/**/*.scss'],
+        files: ['framework/deck/scss/**/*.scss', 'framework/deck/scss/*.scss'],
         tasks: ['sass:deck']
       },
       sass_app: {
-        files: ['css/scss/**/*.scss'],
+        files: ['css/*.scss'],
         tasks: ['sass:app']
+      },
+      sass_library: {
+        files: ['library/*.scss', 'library/**/*.scss'],
+        tasks: ['sass:library'],
+        options: {
+          livereload: true,
+          nospawn: true
+        }
       },
       livingstyleguide: {
         files: ['framework/deck/**/*.md'],
@@ -29,6 +40,13 @@ module.exports = function(grunt) {
         files: {
             'css/style.css': 'css/style.scss'
         }
+      },
+      library: {
+        files: [{
+          expand: true,
+          src: '',
+          ext: ''
+        }]
       }
     },
     livingstyleguide: {
@@ -47,5 +65,17 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass');
 
   grunt.registerTask('default', ['sass','livingstyleguide']);
+
+  grunt.event.on('watch', function(action, filepath) {
+
+    grunt.log.writeln("Dynamic filepath: " + filepath)
+
+    grunt.config(['sass', 'library', 'files'], [{
+        expand: true,
+        src: filepath,
+        ext: '.css',
+    }]);
+
+  });
 
 };

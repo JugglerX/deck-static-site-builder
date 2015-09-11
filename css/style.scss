@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
-
-$primary-color: green;
+@import 'framework/deck/scss/core/reset';
+@import 'framework/deck/scss/core/clearfix';
+@import 'framework/deck/scss/core/grid';
+@import 'framework/deck/scss/core/column';
+@import 'framework/deck/scss/core/mobile';
+@import 'framework/deck/scss/module/labels';
 
 pre {
 	margin: 0 !important;
@@ -19,8 +23,11 @@ div {
 	box-sizing: border-box;
 }
 .middle {
-	border-bottom: 1px solid #CCC;
-	padding: 40px;
+	padding: 40px 0 40px 0;
+}
+
+.deck {
+	@include container
 }
 .code {
 	background: #FFF;
@@ -79,4 +86,15 @@ div {
 }
 .logo {
 	color: red;
+}
+.labels {
+	text-align: center;
+	display: block;
+	margin-bottom: 20px;
+	.label {
+		cursor: pointer;
+		&:hover {
+			background: #EEE;
+		}
+	}
 }

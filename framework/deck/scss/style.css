@@ -1,72 +1,31 @@
 /*
-* Paradigm V1.0.0
-* Robert Austin - rob$jugglerdigital.com
+* Deck V1.0.0
+* Robert Austin - rob@jugglerdigital.com
 */
-/* 
-   Global Variables
-   ========================================================================== */
 /* Link Colors */
 /* Colors */
 /* Text Color */
-/* Body */
+/* CSS Mini Reset */
 @import url(https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,600,300,700,800|Roboto+Slab:400,300,700|Merriweather:400,300,700|Slabo+27px);
-body {
+html, body, div, form, fieldset, legend, label {
   margin: 0;
-  padding: 0;
-  color: #212121;
-  font-family: "open sans", "helvetica", "arial";
-  font-size: 14px;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased; }
+  padding: 0; }
 
-/* Text Links */
-a {
-  border-bottom: 1px dashed rgba(70, 185, 128, 0.5);
-  color: #46b980;
-  text-decoration: none; }
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
 
-a:hover {
-  border-bottom: 1px solid #46b980; }
+th, td {
+  text-align: left;
+  vertical-align: top; }
 
-body:after {
-  background: red;
-  color: #FFFFFF;
-  opacity: 0.8;
-  padding: 0.5em 1em;
-  position: fixed;
-  text-align: center;
-  bottom: 0;
-  right: 0;
-  z-index: 999; }
-  @media only screen and (max-width: 768px) {
-    body:after {
-      background: orange;
-      content: "mobile"; } }
-  @media only screen and (min-width: 768px) and (max-width: 1024px) {
-    body:after {
-      background: purple;
-      content: "ipad"; } }
-  @media only screen and (min-width: 1024px) and (max-width: 1380px) {
-    body:after {
-      background: green;
-      content: "desktop"; } }
-  @media only screen and (min-width: 1380px) {
-    body:after {
-      background: blue;
-      content: "desktop-xl"; } }
+h1, h2, h3, h4, h5, h6, th, td, caption {
+  font-weight: normal;
+  margin: 0; }
 
-/* ==========================================================================
-   Grid Variables
-   ========================================================================== */
-/* ==========================================================================
-   Desktop XL Grid Variables
-   ========================================================================== */
-/* ==========================================================================
-   Ipad Grid Variables
-   ========================================================================== */
-/* ==========================================================================
-   Mobile Grid Variables
-   ========================================================================== */
+img {
+  border: 0; }
+
 /* Border Radius
 ------------------------------------------------------------*/
 /* Drop shadows
@@ -100,9 +59,6 @@ body:after {
    ========================================================================== */
 /* 
    Absolute Positioning
-   ========================================================================== */
-/* ==========================================================================
-   Column
    ========================================================================== */
 /* ==========================================================================
    Structure
@@ -618,14 +574,14 @@ ul.menu {
     ul.menu li a {
       display: block;
       background: none;
-      color: #46b980;
+      color: #ff5a5f;
       text-decoration: none;
       border: none; }
       ul.menu li a:hover {
-        color: #46b980;
+        color: #ff5a5f;
         text-decoration: underline; }
       ul.menu li a.active {
-        color: #46b980;
+        color: #ff5a5f;
         text-decoration: underline; }
       @media only screen and (min-width: 768px) and (max-width: 1024px) {
         ul.menu li a {
@@ -635,7 +591,7 @@ ul.menu {
       padding: 10px 18px;
       display: block;
       background: none;
-      color: #46b980;
+      color: #ff5a5f;
       cursor: context-menu; }
       @media only screen and (min-width: 768px) and (max-width: 1024px) {
         ul.menu li span {
@@ -709,8 +665,7 @@ ul.menu {
       float: none;
       position: relative; } }
   .portfolio:nth-of-type(3n + 0) {
-    margin-right: 0;
-    background: yellow; }
+    margin-right: 0; }
   @media only screen and (max-width: 768px) {
     .portfolio {
       min-height: 0px;
@@ -955,7 +910,7 @@ html.sb-static .sb-slidebar,
     color: #FFF;
     border-left: 3px solid transparent; }
     .sb-left li a:hover {
-      border-left: 3px solid #46b980; }
+      border-left: 3px solid #ff5a5f; }
 
 .socialmedia {
   margin: 10px 0 0 0;
@@ -1132,7 +1087,7 @@ blockquote, .blockquote {
   margin: 0 0 20px 0;
   padding: 14px;
   background: white;
-  color: #46b980;
+  color: #ff5a5f;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 200;
@@ -1176,7 +1131,7 @@ hr, .hr {
     border-color: #ddd;
     border-color: rgba(0, 0, 0, 0.15); }
   .well.well-primary {
-    background: #46b980; }
+    background: #ff5a5f; }
 
 .well-large {
   padding: 24px;
@@ -1263,25 +1218,25 @@ hr, .hr {
   height: auto;
   text-indent: 0;
   font-size: 12px;
-  color: #46b980;
+  color: #ff5a5f;
   vertical-align: baseline;
   cursor: pointer; }
   .btn-clear:hover {
     text-decoration: underline; }
 
 .btn-primary {
-  background-color: #46b980;
+  background-color: #ff5a5f;
   color: #FFF; }
   .btn-primary:hover {
-    background-color: #389466;
+    background-color: #ff272e;
     color: #FFF; }
 
 .btn-secondary {
   background-color: #2d3a41;
-  color: #46b980; }
+  color: #ff5a5f; }
   .btn-secondary:hover {
     background-color: #181f23;
-    color: #46b980; }
+    color: #ff5a5f; }
 
 .btn-red {
   background-color: #a52020;
@@ -1313,6 +1268,73 @@ input.form-submit.disabled {
   color: #666;
   background-color: #EAEAEA; }
 
+.label {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  background: #CCC; }
+  .label a:hover,
+  .label a:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer; }
+  .label:empty {
+    display: none; }
+  .btn .label, input.form-submit .label {
+    position: relative;
+    top: -1px; }
+
 /* 
    Fonts
    ========================================================================== */
+/* Body */
+body {
+  margin: 0;
+  padding: 0;
+  color: #212121;
+  font-family: "open sans", "helvetica", "arial";
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased; }
+  body:after {
+    background: red;
+    color: #FFFFFF;
+    opacity: 0.8;
+    padding: 0.5em 1em;
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    right: 0;
+    z-index: 999; }
+    @media only screen and (max-width: 768px) {
+      body:after {
+        background: orange;
+        content: "mobile"; } }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+      body:after {
+        background: purple;
+        content: "ipad"; } }
+    @media only screen and (min-width: 1024px) and (max-width: 1380px) {
+      body:after {
+        background: green;
+        content: "desktop"; } }
+    @media only screen and (min-width: 1380px) {
+      body:after {
+        background: blue;
+        content: "desktop-xl"; } }
+
+/* Text Links */
+a {
+  border-bottom: 1px dashed rgba(70, 185, 128, 0.5);
+  color: #ff5a5f;
+  text-decoration: none; }
+
+a:hover {
+  border-bottom: 1px solid #46b980; }
