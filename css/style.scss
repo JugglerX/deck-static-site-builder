@@ -1,9 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
-@import 'clearfix';
-@import 'star';
-@import 'type';
 
 $primary-color: green;
+
 pre {
 	margin: 0 !important;
 	font-size: 11px;
@@ -26,7 +24,6 @@ div {
 }
 .code {
 	background: #FFF;
-	@include clearfix();
 }
 .demo {
 	h2.demo-heading {

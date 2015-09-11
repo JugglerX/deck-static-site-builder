@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "ejs": "^2.3.4"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

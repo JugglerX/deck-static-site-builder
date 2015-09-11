@@ -2,9 +2,13 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     watch: {
-      sass: {
+      sass_deck: {
         files: ['framework/deck/scss/**/*.scss'],
-        tasks: ['sass']
+        tasks: ['sass:deck']
+      },
+      sass_app: {
+        files: ['css/scss/**/*.scss'],
+        tasks: ['sass:app']
       },
       livingstyleguide: {
         files: ['framework/deck/**/*.md'],
@@ -16,10 +20,15 @@ module.exports = function(grunt) {
           sourceMap: false,
           livereload: true
       },
-      dist: {
-          files: {
-              'framework/deck/scss/style.css': 'framework/deck/scss/style.scss'
-          }
+      deck: {
+        files: {
+            'framework/deck/scss/style.css': 'framework/deck/scss/style.scss'
+        }
+      },
+      app: {
+        files: {
+            'css/style.css': 'css/style.scss'
+        }
       }
     },
     livingstyleguide: {
