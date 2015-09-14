@@ -243,12 +243,13 @@ function changeViewMode() {
     
     // Load the HTML
     $.ajax({
+
       url: asset,
       cache: true,
       success: function(data) {
         source = data;
         template = Handlebars.compile(source,{compat: true});
-        
+        console.log(data)
         updateHtmlCodeHighlight(asset);
         $(".deck").html(template(globalJson)); 
         // $(".demo h2.demo-heading").html(path)  
