@@ -1,12 +1,13 @@
-<h1>Full View</h1>
+{{#each result}}
 <div class="hotel">
-	<div class="hotel-image slick">
-		{{#each-limit photos 6}}
-			<div><img src="{{this.medium}}"></div>
-		{{/each-limit}}
-	</div>
 
 	<div class="hotel-header">
+		<div class="hotel-image slick">
+			{{#each-limit photos 6}}
+				<div><img src="{{this.medium}}"></div>
+			{{/each-limit}}
+		</div>
+
 		<a href="{{nullValue provider.url}}" class="hotel-price">
 			<span class="hotel-price-dollar">$</span>
 			<span class="hotel-price-value">{{{nullValue price.nightly}}}</span>
@@ -29,6 +30,7 @@
 		<span class="hotel-rating-count">{{nullValue reviews.count}} Reviews</span>
 	</div>
 </div>
+{{/each}}
 
 <script type="text/javascript" src="bower_components/slick-carousel/slick/slick.js"></script>
 <link rel="stylesheet" type="text/css" href="bower_components/slick-carousel/slick/slick.css">
