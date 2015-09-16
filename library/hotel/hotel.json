@@ -1,0 +1,12 @@
+{
+    "name": "hotel",
+    "js": [
+    	"bower_components/slick-carousel/slick/slick.js"
+    ],
+    "css": [
+    	"bower_components/slick-carousel/slick/slick.css",
+    	"bower_components/slick-carousel/slick/slick-theme.css"
+    ]
+
+}
+
