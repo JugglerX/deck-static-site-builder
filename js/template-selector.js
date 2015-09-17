@@ -2,7 +2,7 @@
 function populateTemplateSelectBox(array) {
   var option = '';
   for (var i=0;i<array.length;i++){
-     option += '<option value="'+ array[i] + '">' + array[i][0] + '</option>';
+     option += '<option value="'+ array[i] + '">' + array[i][1] + '</option>';
   }
   $('#template-selector').append(option);
 }
@@ -37,10 +37,10 @@ function changeTemplate() {
     var str = [];
     console.log("**** Change Template ****")
     $(this).children("select option:selected").each(function() {
-      str = $(this).text().split(',');
+      str = $(this).val().split(',');
       console.log(str)
     });
-    loadTemplate(str[0], str[1], str[2], str[3]);
+    loadTemplate(str[0], str[1], str[2], str[3], str[4]);
   });
 };
 

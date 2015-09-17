@@ -1,4 +1,4 @@
-<h1>Full View</h1>
+{{#each result}}
 <div class="hotel">
 
 	<div class="hotel-header">
@@ -30,17 +30,6 @@
 		<span class="hotel-rating-count">{{nullValue reviews.count}} Reviews</span>
 	</div>
 </div>
+{{/each}}
 
-<script type="text/javascript" src="bower_components/slick-carousel/slick/slick.js"></script>
-<link rel="stylesheet" type="text/css" href="bower_components/slick-carousel/slick/slick.css">
-<link rel="stylesheet" type="text/css" href="bower_components/slick-carousel/slick/slick-theme.css">
-
-<script type="text/javascript">
-	  $('.slick').slick({
-	    dots: true,
-		infinite: true,
-		speed: 500,
-		fade: true,
-		cssEase: 'linear'
-	  });
-</script>
+<script src="/js/deck.js"></script>

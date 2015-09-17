@@ -1,7 +1,4 @@
-@import '../../framework/deck/scss/core/clearfix';
-@import '../../framework/deck/scss/core/grid';
-@import '../../framework/deck/scss/core/column';
-@import '../../framework/deck/scss/core/mobile';
+@import '../../framework/bootstrap-4.0.0-alpha/scss/bootstrap';
 
 .demo {
   /* Used only for Deck Demo */
@@ -10,17 +7,22 @@
 }
 
 .deck { 
-  @mixin text-truncate {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    width: 100%;
+  // @mixin text-truncate {
+  //   overflow: hidden;
+  //   white-space: nowrap;
+  //   text-overflow: ellipsis;
+  //   width: 100%;
+  // }
+ .hotels {
+    @include make-row();
   }
-
   .hotel {
-    @include clearfix();
-    @include column(4);
-    @include last(3);
+    // @include clearfix();
+    // @include column(4);
+    // @include last(3);
+
+    @include make-col();
+    @include make-col-span(4);
     padding: 10px;
     background: #FFF;
     box-shadow: 1px 1px 4px #CCCCCC;
