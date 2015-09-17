@@ -85,7 +85,24 @@ div {
       padding: 14px; } }
 
 .code {
-  background: #FFF; }
+  background: #FFF;
+  display: none; }
+
+.messages {
+  height: 100px; }
+
+.loading {
+  text-align: center; }
+  .loading .sk-three-bounce {
+    margin: 10px auto;
+    width: 80px;
+    text-align: center; }
+
+.error {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  color: #666; }
 
 .demo h2.demo-heading {
   text-transform: capitalize;
@@ -130,6 +147,10 @@ div {
   .header form {
     display: inline-block;
     float: right; }
+    .header form label {
+      font-size: 12px;
+      font-weight: 700;
+      margin-right: 5px; }
 
 .logo {
   color: red; }

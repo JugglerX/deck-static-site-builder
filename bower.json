@@ -19,6 +19,7 @@
     "prism": "~1.0.1",
     "slick-carousel": "~1.5.8",
     "bootstrap": "~3.3.5",
-    "animate.css": "~3.4.0"
+    "animate.css": "~3.4.0",
+    "spinkit": "~1.2.2"
   }
 }

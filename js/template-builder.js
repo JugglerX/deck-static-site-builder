@@ -12,6 +12,7 @@ function loadTemplate(templateName, htmlPath, cssPath, jsonPath, metaPath) {
       console.log("-- All assets loaded Asynchronously")
       // We actually use the cssPath when we render, but we still check the file exists using an ajax all above
       renderTemplate(templateName, html[0],json[0],cssPath,meta[0])
+      $(".demo-heading").html(htmlPath)
       loading(false)
     })
     .fail(function() {
@@ -21,12 +22,13 @@ function loadTemplate(templateName, htmlPath, cssPath, jsonPath, metaPath) {
     });
 
   function loading(spinner) {
+    $(".error").html("")
     spinner ? $(".loading").show() : $(".loading").hide();
   }
 }
 
 function renderTemplate(templateName, html, json, css, meta) {
-  console.log("**** Render Template ****")
+  console.log("-- Rendering template: " + templateName)
   template = Handlebars.compile(html,{compat: true});
   $(".deck").html(template(json)); 
   $(".css").attr("href", "library/" + templateName + "/" + css);
@@ -94,30 +96,4 @@ function getJson(templateName, jsonPath) {
   })
 };
 
-function loadTemplate(templateName, htmlPath, cssPath, jsonPath, metaPath) {
-  console.log("**** Load Template ****")
-  $(".loading").hide();
-  $.when(
-      getHtml(templateName, htmlPath),
-      getCss(templateName, cssPath),
-      getJson(templateName, jsonPath),
-      getMeta(templateName, metaPath),
-      loading(true)
-    )
-    .done(function(html,css,json,meta) { 
-      console.log("-- All assets loaded Asynchronously")
-      // We actually use the cssPath when we render, but we still check the file exists using an ajax all above
-      renderTemplate(templateName, html[0],json[0],cssPath,meta[0])
-      loading(false)
-    })
-    .fail(function() {
-      console.log("-- loadTemplate() failed - one or more assets was not found")
-      loading(false)
-      $(".error").html("loadTemplate() failed - one or more assets was not found")
-    });
-
-  function loading(spinner) {
-    spinner ? $(".loading").show() : $(".loading").hide();
-  }
-}
 

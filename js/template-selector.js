@@ -2,7 +2,7 @@
 function populateTemplateSelectBox(array) {
   var option = '';
   for (var i=0;i<array.length;i++){
-     option += '<option value="'+ array[i] + '">' + array[i] + '</option>';
+     option += '<option value="'+ array[i] + '">' + array[i][0] + '</option>';
   }
   $('#template-selector').append(option);
 }
@@ -82,12 +82,12 @@ function changeViewMode() {
   $(".label").on("click", function() {
 
     var viewmode = $(this).html().toLowerCase()
-    console.log(viewmode)
+    console.log("**** Switching Viewmode ****")
+    console.log("Viewmode: " + viewmode)
 
     var str = [];
     $( "#template-selector" ).children("select option:selected").each(function() {
-      str = $(this).text().split(',');
-      console.log(str)
+      str = $(this).val().split(',');
     });
 
     loadTemplate(

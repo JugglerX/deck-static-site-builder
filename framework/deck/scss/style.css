@@ -6,6 +6,7 @@
 /* Colors */
 /* Text Color */
 /* CSS Mini Reset */
+@import url(../../../bower_components/spinkit/css/spinkit.css);
 @import url(https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,600,300,700,800|Roboto+Slab:400,300,700|Merriweather:400,300,700|Slabo+27px);
 html, body, div, form, fieldset, legend, label {
   margin: 0;

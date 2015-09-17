@@ -7,11 +7,17 @@ module.exports = function(grunt) {
     watch: {
       sass_deck: {
         files: ['framework/deck/scss/**/*.scss', 'framework/deck/scss/*.scss'],
-        tasks: ['sass:deck']
+        tasks: ['sass:deck'],
+        options: {
+          livereload: true,
+        }
       },
       sass_app: {
         files: ['css/*.scss'],
-        tasks: ['sass:app']
+        tasks: ['sass:app'],
+        options: {
+          livereload: true,
+        }
       },
       sass_library: {
         files: ['library/*.scss', 'library/**/*.scss'],

@@ -8,7 +8,7 @@
         
         <link rel="stylesheet" type="text/css" href="bower_components/prism/themes/prism.css">
         <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css">
-        <link rel="stylesheet" type="text/css" href="bower_components/normalize.css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/spinkit/css/spinkit.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link class="css" rel="stylesheet" type="text/css" href="library/library.css">
         
@@ -27,24 +27,38 @@
     <div class="header">
         <a href="/" class="logo">Deck</a>
         <form>
+        <label>Template</label>
             <select id="template-selector">
             
             </select>
         </form>
     </div>
     
+
+
     <div class="middle">
         <div class="demo">
-        <div class="error"></div>
-        <h2 class="demo-heading">Airbnb Teaser</h2>
+            
+            <div class="messages">
+                <h2 class="demo-heading">Airbnb Teaser</h2>
+                <div class="loading">
+                    <div class="sk-three-bounce">
+                        <div class="sk-child sk-bounce1"></div>
+                        <div class="sk-child sk-bounce2"></div>
+                        <div class="sk-child sk-bounce3"></div>
+                    </div>
+                </div>
+                <div class="error"></div>
+            </div>
+
             <div class="labels">
                 <span class="label active">Teaser</span>
                 <span class="label">Full</span>
                 <span class="label">Row</span>
             </div>
-            <div class="loading">LOADING</div>
+            
             <div class="deck">  
-                Deck
+                
             </div>
         </div>
     </div>
