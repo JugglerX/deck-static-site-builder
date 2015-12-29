@@ -5,13 +5,13 @@ function loadTemplate(templateName, htmlPath, cssPath, jsonPath, metaPath) {
       getHtml(templateName, htmlPath),
       getCss(templateName, cssPath),
       getJson(templateName, jsonPath),
-      getMeta(templateName, metaPath),
+      // getMeta(templateName, metaPath),
       loading(true)
     )
     .done(function(html,css,json,meta) { 
       console.log("-- All assets loaded Asynchronously")
       // We actually use the cssPath when we render, but we still check the file exists using an ajax all above
-      renderTemplate(templateName, html[0],json[0],cssPath,meta[0])
+      renderTemplate(templateName, html[0],json[0],cssPath)
       $(".demo-heading").html(htmlPath)
       loading(false)
     })

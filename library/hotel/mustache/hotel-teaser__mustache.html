@@ -1,0 +1,47 @@
+{{#each result}}
+<div class="hotel">
+
+	<div class="hotel-header">
+		<div class="hotel-image slick">
+			{{#each-limit photos 6}}
+				<div><img src="{{this.medium}}"></div>
+			{{/each-limit}}
+		</div>
+
+		<a href="{{nullValue provider.url}}" class="hotel-price">
+			<span class="hotel-price-dollar">$</span>
+			<span class="hotel-price-value">{{{nullValue price.nightly}}}</span>
+			<span class="hotel-price-currency">AUD</span>
+		</a>
+	</div>
+
+	<div class="hotel-body">
+		<h2 class="hotel-heading"><a href="{{nullValue provider.url}}" >{{nullValue attr.heading}}</a></h2>
+		<span class="hotel-roomtype">{{nullValue attr.roomType.text}}</span>
+
+		<div class="hotel-stars stars star-{{nullValue reviews.rating}}">
+			<span class="star"></span>
+			<span class="star"></span>
+			<span class="star"></span>
+			<span class="star"></span>
+			<span class="star"></span>
+		</div>
+
+		<span class="hotel-rating-count">{{nullValue reviews.count}} Reviews</span>
+	</div>
+</div>
+{{/each}}
+
+<script type="text/javascript" src="bower_components/slick-carousel/slick/slick.js"></script>
+<link rel="stylesheet" type="text/css" href="bower_components/slick-carousel/slick/slick.css">
+<link rel="stylesheet" type="text/css" href="bower_components/slick-carousel/slick/slick-theme.css">
+
+<script type="text/javascript">
+	  $('.slick').slick({
+	    dots: true,
+		infinite: true,
+		speed: 500,
+		fade: true,
+		cssEase: 'linear'
+	  });
+</script>
