@@ -1,19 +1,18 @@
-function loadTemplate(templateName, htmlPath, cssPath, jsonPath, metaPath) {
+function loadTemplate(template) {
   console.log("**** Load Template ****")
   $(".loading").hide();
   $.when(
-      getHtml(templateName, htmlPath),
-      getCss(templateName, cssPath),
-      getJson(templateName, jsonPath),
-      // getMeta(templateName, metaPath),
+      getHtml(template),
+      getCssPath(template),
+      // getJson("https://zilyo.p.mashape.com/search?ids=hma1554297%2Cwts1398%2Cair1836678"),
+      getJsonFile(template),
       loading(true)
     )
-    .done(function(html,css,json,meta) { 
-      console.log("-- All assets loaded Asynchronously")
-      // We actually use the cssPath when we render, but we still check the file exists using an ajax all above
-      renderTemplate(templateName, html[0],json[0],cssPath)
-      $(".demo-heading").html(htmlPath)
-      loading(false)
+    .done(function(html,css,json) { 
+        handlebarsTemplate = Handlebars.compile(html[0],{compat: true});
+        $(".deck").html(handlebarsTemplate(json[0])); 
+        $(".css").attr("href", css);
+        loading(false);
     })
     .fail(function() {
       console.log("-- loadTemplate() failed - one or more assets was not found")
@@ -25,13 +24,6 @@ function loadTemplate(templateName, htmlPath, cssPath, jsonPath, metaPath) {
     $(".error").html("")
     spinner ? $(".loading").show() : $(".loading").hide();
   }
-}
-
-function renderTemplate(templateName, html, json, css, meta) {
-  console.log("-- Rendering template: " + templateName)
-  template = Handlebars.compile(html,{compat: true});
-  $(".deck").html(template(json)); 
-  $(".css").attr("href", "library/" + templateName + "/" + css);
 }
 
 // Async Calls to get Assets
@@ -51,8 +43,12 @@ function getMeta(templateName, metaPath) {
   })
 }
 
-function getCss(templateName, cssPath) {
-  var path = "library/" + templateName + "/" + cssPath
+function getCss(template) {
+  if (template.cssPath === undefined) {
+    var path = "library/" + template.templateDirectory + "/" + template.templateName + ".css";
+  } else {
+    var path = "library/" + template.templateDirectory + "/" + cssPath;
+  }
   console.log("CSS Asset: " + path);
   return $.ajax({
     url: path,
@@ -64,21 +60,57 @@ function getCss(templateName, cssPath) {
   })
 }
 
-function getHtml(templateName, htmlPath) {
-  var path = "library/" + templateName + "/" + htmlPath
+function getCssPath(template) {
+  if (template.cssPath === undefined) {
+    var path = "library/" + template.templateDirectory + "/" + template.templateName + ".css";
+    console.log("CSS Asset: " + path);
+    return path;
+  } else {
+    var path = "library/" + template.templateDirectory + "/" + cssPath;
+    console.log("CSS Asset: " + path);
+    return path;
+  }
+}
+
+function getHtml(template) {
+  if (template.templateHtmlPath === undefined) {
+    var path = "library/" + template.templateDirectory + "/" + template.templateName + ".html";
+  } else {
+    var path = "library/" + template.templateDirectory + "/" + template.templateHtmlPath;
+  }
   console.log("HTML Asset: " + path);
   return $.ajax({
     url: path,
-    success: function(data) {
+    success: function(data) {     
     },
     error: function(err) { 
-      console.log("-- getHtml AJAX Failure")
+      console.log("-- getHtml() AJAX File Failure")
     }
   })
 };
 
-function getJson(templateName, jsonPath) {
-  var path = jsonPath
+function getJsonFile(template) {
+  if (template.jsonPath === undefined) {
+    var path = "library/" + template.templateDirectory + "/" + template.templateDirectory + ".json";
+  } else {
+    var path = "library/" + template.templateDirectory + "/" + jsonPath;
+  }
+  console.log("JSON File Asset: " + path);
+  return $.ajax({
+    url: path,
+    type: 'GET', 
+    data: {}, 
+    dataType: 'json',
+    success: function(data) {     
+    },
+    error: function(err) { 
+      console.log("-- getJsonFile() AJAX File Failure")
+    }
+  })
+};
+
+function getJson(url) {
+  var path = url
   console.log("JSON Asset: " + path);
   return $.ajax({
     url: path,

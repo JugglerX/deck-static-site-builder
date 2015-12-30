@@ -21,7 +21,15 @@
     <body>
 
     <% include header %>
-    
+
+    <div class="sidebar">
+        <ul id="template-selector-bullet-list" class="files">
+            <% files.forEach(function(file) { %>
+                <li><a href="#"><%= file %></a></li>
+            <% }); %>
+        </ul>
+    </div>
+
     <div class="middle">
         <div class="demo">
         <h2 class="demo-heading">Airbnb Teaser</h2>

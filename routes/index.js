@@ -1,47 +1,49 @@
 var express = require('express');
 var fs = require("fs");
+var dir = require('node-dir');
 var path = require('path');
 var router = express.Router();
 
+router.use(function (req, res, next) {
+  console.log('Time:', Date.now());
+  next();
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+
+	function allowedFiles (file) {
+		var whitelist = ['html','ejs'];
+		for (var i=0;i<whitelist.length;i++){
+		    if (file === whitelist[i]) {
+				return true;
+			}
+		}
+	}
+
+	function getFiles (dir, files_){
+	    files_ = files_ || [];
+	    var files = fs.readdirSync(dir);
+	    console.log(files)
+	    for (var i in files){
+	        var name = dir + '/' + files[i];
+	        var fileExtension = files[i].split('.')[1];
+	        if (fs.statSync(name).isDirectory()){
+	            getFiles(name, files_);
+	        } else {
+	        	if (allowedFiles(fileExtension) === true && name.split('/').length > 2) {
+	            	files_.push(name);
+	        	}
+	        }
+	    }
+	    return files_;
+	}
+
+    fs.readdir('./library', function (err, files) {
+		res.render('index', { files: getFiles('library') }, function(err, html) {
+		  	res.send(html);
+		});
+    })
 });
-
-router.get('/library/hotel/', function(req, res, next) {
-  res.render('hotel/index', { title: 'Express' });
-});
-
-router.get('/library/card/', function(req, res, next) {
-
-	var jsonPath = req.path
-	console.log(typeof jsonPath)
-	console.log(typeof 3)
-	
-	var drinks = [
-        { name: 'Bloody Mary', drunkness: 3 },
-        { name: 'Martini', drunkness: 5 },
-        { name: 'Scotch', drunkness: 10 }
-    ];
-    var tagline = "Any code of your own that you haven't looked at for six or more months might as well have been written by someone else.";
-
-	// Asynchronous read
-	fs.readFile('/input.txt', function (err, data) {
-	   if (err) {
-	       return console.error(err);
-	   }
-	   console.log("Asynchronous read: " + data.toString());
-	});
-
-	// // Synchronous read
-	// var data = fs.readFileSync('input.txt');
-	// console.log("Synchronous read: " + data.toString());
-
-	// console.log("Program Ended");
-
-	    
-	  	res.render('card/card', { drinks: drinks });
-	});
 
 module.exports = router;
