@@ -4,15 +4,28 @@ function loadTemplate(template) {
   $.when(
       getHtml(template),
       getCssPath(template),
-      // getJson("https://zilyo.p.mashape.com/search?ids=hma1554297%2Cwts1398%2Cair1836678"),
       getJsonFile(template),
+      getJson("https://zilyo.p.mashape.com/search?ids=hma1554297%2Cwts1398%2Cair1836678"),
       loading(true)
     )
-    .done(function(html,css,json) { 
-        handlebarsTemplate = Handlebars.compile(html[0],{compat: true});
-        $(".deck").html(handlebarsTemplate(json[0])); 
-        $(".css").attr("href", css);
-        loading(false);
+    .done(function(html,css,jsonfile,json) { 
+        
+        if (jsonfile[0][template.templateName].url === "" || null || undefined) {
+          console.log("local jsonfile")
+          console.log(jsonfile[0])
+          handlebarsTemplate = Handlebars.compile(html[0],{compat: true});
+          $(".deck").html(handlebarsTemplate(jsonfile[0])); 
+          $(".css").attr("href", css);
+          loading(false);
+        } else {
+          console.log("external jsonfile")
+          console.log(json[0])
+          handlebarsTemplate = Handlebars.compile(html[0],{compat: true});
+          $(".deck").html(handlebarsTemplate(json[0])); 
+          $(".css").attr("href", css);
+          loading(false);
+        }
+        
     })
     .fail(function() {
       console.log("-- loadTemplate() failed - one or more assets was not found")
@@ -101,7 +114,16 @@ function getJsonFile(template) {
     type: 'GET', 
     data: {}, 
     dataType: 'json',
-    success: function(data) {     
+    success: function(data) {
+      // if (data[template.templateName].url === "" || null || undefined) {
+      //   console.log("local json")
+      //   return data
+      // } else {
+      //   console.log("external json")
+      //   console.log("API Call: " + data[template.templateName].url)
+      //   var externalData = getJson(data[template.templateName].url)
+      //   return externalData;
+      // }
     },
     error: function(err) { 
       console.log("-- getJsonFile() AJAX File Failure")
@@ -118,6 +140,7 @@ function getJson(url) {
     data: {}, 
     dataType: 'json',
     success: function(data) {  
+      return data;
     },
     error: function(err) { 
       console.log("-- getJson() AJAX Failure")
