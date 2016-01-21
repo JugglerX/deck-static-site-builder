@@ -1,6 +1,6 @@
 var express = require('express');
 var fs = require("fs");
-var dir = require('node-dir');
+// var dir = require('node-dir');
 var path = require('path');
 var router = express.Router();
 
