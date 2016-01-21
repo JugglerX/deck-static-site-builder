@@ -24,6 +24,7 @@
 
     <div class="sidebar">
         <ul id="template-selector-bullet-list" class="files">
+            <!-- File tree generated from /routes/index.js -->
             <% files.forEach(function(file) { %>
                 <li><a href="#"><%= file %></a></li>
             <% }); %>
@@ -32,52 +33,11 @@
 
     <div class="middle">
         <div class="demo">
-        <h2 class="demo-heading">Airbnb Teaser</h2>
-            <div class="labels">
-                <span class="label active">Teaser</span>
-                <span class="label">Full</span>
-                <span class="label">Row</span>
-            </div>
             <div class="deck">  
                 Deck
             </div>
         </div>
     </div>
-
-    <div class="code">
-        <div class="json code-column">
-            <form>
-                <select id="json-selector">
-                
-                </select>
-            </form>
-            <h3>JSON</h3>
-            <pre><code class="language-javascript"></code></pre>
-        </div>
-        
-        <div class="html code-column">
-            <form>
-                <select id="html-selector">
-                
-                </select>
-            </form>
-            <h3>HTML</h3>
-            <pre data-src="library/issue/issue.html"></pre>
-        </div>
-
-        <div class="css code-column">
-            <form>
-                <select id="css-selector">
-                
-                </select>
-            </form>
-            <h3>CSS</h3>
-            <pre data-src="library/issue/issue.css"></pre>
-        </div>
-    </div>
-
-
-    <script src="bower_components/prism/prism.js"></script>
 
     </body>
 </html>

@@ -14,7 +14,7 @@ function changeTemplateSelectBox() {
 function changeTemplateBulletList() {
   $("#template-selector-bullet-list li").on("click", function() {
     var array = [];
-    console.log("**** Change Template Bullet List ****")
+    console.log("**** Change Template ****")
     array = $(this).text().split('/');
     
     templateOptions = {

@@ -5,27 +5,23 @@ function loadTemplate(template) {
       getHtml(template),
       getCssPath(template),
       getJsonFile(template),
-      getJson("https://zilyo.p.mashape.com/search?ids=hma1554297%2Cwts1398%2Cair1836678"),
       loading(true)
     )
-    .done(function(html,css,jsonfile,json) { 
-        
-        if (jsonfile[0][template.templateName].url === "" || null || undefined) {
-          console.log("local jsonfile")
-          console.log(jsonfile[0])
+    .done(function(html,css,jsonfile) { 
+        if (jsonfile[0].url === null) {
+          console.log(jsonfile[0]);
           handlebarsTemplate = Handlebars.compile(html[0],{compat: true});
           $(".deck").html(handlebarsTemplate(jsonfile[0])); 
           $(".css").attr("href", css);
           loading(false);
         } else {
-          console.log("external jsonfile")
-          console.log(json[0])
+          var jsonUrl = getJson(jsonfile[0].url);
+          console.log(jsonUrl.responseJSON);
           handlebarsTemplate = Handlebars.compile(html[0],{compat: true});
-          $(".deck").html(handlebarsTemplate(json[0])); 
+          $(".deck").html(handlebarsTemplate(jsonUrl.responseJSON)); 
           $(".css").attr("href", css);
           loading(false);
         }
-        
     })
     .fail(function() {
       console.log("-- loadTemplate() failed - one or more assets was not found")
@@ -39,7 +35,6 @@ function loadTemplate(template) {
   }
 }
 
-// Async Calls to get Assets
 function getMeta(templateName, metaPath) {
   var path = "library/" + templateName + "/" + metaPath
   console.log("Meta Asset: " + path);
@@ -103,11 +98,7 @@ function getHtml(template) {
 };
 
 function getJsonFile(template) {
-  if (template.jsonPath === undefined) {
-    var path = "library/" + template.templateDirectory + "/" + template.templateDirectory + ".json";
-  } else {
-    var path = "library/" + template.templateDirectory + "/" + jsonPath;
-  }
+  var path = "library/" + template.templateDirectory + "/" + template.templateName + ".json";
   console.log("JSON File Asset: " + path);
   return $.ajax({
     url: path,
@@ -115,15 +106,6 @@ function getJsonFile(template) {
     data: {}, 
     dataType: 'json',
     success: function(data) {
-      // if (data[template.templateName].url === "" || null || undefined) {
-      //   console.log("local json")
-      //   return data
-      // } else {
-      //   console.log("external json")
-      //   console.log("API Call: " + data[template.templateName].url)
-      //   var externalData = getJson(data[template.templateName].url)
-      //   return externalData;
-      // }
     },
     error: function(err) { 
       console.log("-- getJsonFile() AJAX File Failure")
@@ -133,14 +115,15 @@ function getJsonFile(template) {
 
 function getJson(url) {
   var path = url
-  console.log("JSON Asset: " + path);
+  console.log("JSON External Asset: " + path);
   return $.ajax({
     url: path,
     type: 'GET', 
     data: {}, 
     dataType: 'json',
+    async: false,
     success: function(data) {  
-      return data;
+
     },
     error: function(err) { 
       console.log("-- getJson() AJAX Failure")
