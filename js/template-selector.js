@@ -1,38 +1,5 @@
-// Populate Select Boxes
-function populateTemplateSelectBox(array) {
-  var option = '';
-  for (var i=0;i<array.length;i++){
-     option += '<option value="'+ array[i] + '">' + array[i][1] + '</option>';
-  }
-  $('#template-selector').append(option);
-}
-
-function populateHtmlSelectBox(array) {
-  option = '';
-  for (var i=0;i<array.length;i++){
-     option += '<option value="'+ array[i][0] + '">' + array[i][0] + '</option>';
-  }
-  $('#html-selector').append(option);
-}
-
-function populateCssSelectBox(array) {
-  option = '';
-  for (var i=0;i<array.length;i++){
-     option += '<option value="'+ array[i][0] + '">' + array[i][0] + '</option>';
-  }
-  $('#css-selector').append(option);
-}
-
-function populateJsonSelectBox(array) {
-  option = '';
-  for (var i=0;i<array.length;i++){
-     option += '<option value="'+ array[i][1] + '">' + array[i][1] + '</option>';
-  }
-  $('#json-selector').append(option);
-}
-
 // Change Template
-function changeTemplate() {
+function changeTemplateSelectBox() {
   $( "#template-selector" ).change(function() {
     var str = [];
     console.log("**** Change Template ****")
@@ -41,6 +8,24 @@ function changeTemplate() {
       console.log(str)
     });
     loadTemplate(str[0], str[1], str[2], str[3], str[4]);
+  });
+};
+
+function changeTemplateBulletList() {
+  $("#template-selector-bullet-list li").on("click", function() {
+    var array = [];
+    console.log("**** Change Template ****")
+    array = $(this).text().split('/');
+    
+    templateOptions = {
+      templateDirectory: array[1],
+      templateName: array[2].split('.')[0],
+      templateHtmlPath: array[2]
+    }
+
+    console.log(templateOptions)
+
+    loadTemplate(templateOptions);
   });
 };
 
@@ -63,6 +48,15 @@ function changeJson() {
       console.log(str)
     })
     getJson(str);
+  });
+};
+
+function changeJsonFile() {
+  $("#template-selector-bullet-list li").on("click", function() {
+    var str = [];
+    str = $(this).text().split('/');
+    console.log(str)
+    getJsonFile(str);
   });
 };
 

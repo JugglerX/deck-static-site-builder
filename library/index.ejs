@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <head>
+
+        <link rel="stylesheet" type="text/css" href="bower_components/prism/themes/prism.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/spinkit/css/spinkit.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link class="css" rel="stylesheet" type="text/css" href="library/library.css">
+        
+        <script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+        
+        <script src="js/main.js"></script>
+        <script src="js/template-populate.js"></script>
+        <script src="js/template-builder.js"></script>
+        <script src="js/template-selector.js"></script>
+        <script src="js/handlebars-helpers.js"></script>
+        <script src="js/code-highlight.js"></script>
+
+    </head>
+    <body>
+
+    <% include header %>
+
+    <div class="sidebar">
+        <ul id="template-selector-bullet-list" class="files">
+            <!-- File tree generated from /routes/index.js -->
+            <% files.forEach(function(file) { %>
+                <li><a href="#"><%= file %></a></li>
+            <% }); %>
+        </ul>
+    </div>
+
+    <div class="middle">
+        <div class="demo">
+            <div class="deck">  
+                Deck
+            </div>
+        </div>
+    </div>
+
+    </body>
+</html>
