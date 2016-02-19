@@ -1,4 +1,4 @@
-# Deck
+# Deck JSON Builder
 
 A experiment in building a static site generator. Rapidly prototype with dummy JSON data or real API data. 
 
