@@ -4,3 +4,5 @@ node_modules
 ideas
 config.codekit
 .sass-cache
+.idea
+npm-debug.log

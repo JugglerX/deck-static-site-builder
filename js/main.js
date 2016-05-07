@@ -21,5 +21,4 @@ jQuery(document).ready(function($) {
   // Load default template
   loadTemplate(templateOptions);
   changeTemplateBulletList();
-
 });

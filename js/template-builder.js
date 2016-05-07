@@ -23,6 +23,7 @@ function loadTemplate(template) {
           loading(false);
         }
     })
+
     .fail(function() {
       console.log("-- loadTemplate() failed - one or more assets was not found")
       loading(false)
